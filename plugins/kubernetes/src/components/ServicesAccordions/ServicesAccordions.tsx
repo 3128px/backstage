@@ -19,6 +19,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Button,
   Divider,
   Grid,
   Typography,
@@ -49,10 +50,13 @@ const ServiceSummary = ({ service }: ServiceSummaryProps) => {
         <Divider style={{ height: '5em' }} orientation="vertical" />
       </Grid>
 
-      <Grid item>
+      <Grid item xs>
         <Typography variant="subtitle2">
           Type: {service.spec?.type ?? '?'}
         </Typography>
+      </Grid>
+      <Grid item xs="auto">
+        <Button>Expose</Button>
       </Grid>
     </Grid>
   );
