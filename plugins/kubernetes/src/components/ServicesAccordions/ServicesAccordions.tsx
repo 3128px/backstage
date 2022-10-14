@@ -19,7 +19,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Button,
   Divider,
   Grid,
   Typography,
@@ -29,6 +28,7 @@ import { V1Service } from '@kubernetes/client-node';
 import { ServiceDrawer } from './ServiceDrawer';
 import { GroupedResponsesContext } from '../../hooks';
 import { StructuredMetadataTable } from '@backstage/core-components';
+import { HTTPRouteDrawer } from '../CustomResources/Gateways/HTTPRouteDrawer';
 
 type ServiceSummaryProps = {
   service: V1Service;
@@ -56,7 +56,11 @@ const ServiceSummary = ({ service }: ServiceSummaryProps) => {
         </Typography>
       </Grid>
       <Grid item xs="auto">
-        <Button>Expose</Button>
+        <HTTPRouteDrawer
+          labelButton="Expose"
+          title={service.metadata?.name}
+          subtitle="Expose HTTPRoute"
+        />
       </Grid>
     </Grid>
   );
